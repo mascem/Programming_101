@@ -1,0 +1,305 @@
+
+
+1.PROBLEM STATEMENT:
+  A program is required that asks a loan applicant to enter his / her credit score and the 
+  program will decide whether the applicant is qualified for a loan or not based on the min  
+  660 score requirement for the CVTC bank located in Eau Claire, WI. Then, for non-qualified 
+  applicants, it will output and display the qualification results. If the applicant is 
+  eligible, the will set a right interest rate for the credit score and ask the applicant to  
+  enter a home value, downpayment percentage, loan start-year, and month. It will convert 1-12
+  month input to a month name. Then, it will calculate the total downpayment, loan amount, 
+  start date (mm, yyyy), payoff date, total cost of loan, monthly principal & interest, monthly 
+  property tax, and monthly homeowner’s insurance for a 10, 15, 20, 25 and a 30-year loan term. 
+  Finally, it will display all the calculated results including the prompted inputs.
+
+  NOTE: Set variable the interest rate at 7.63% if credit score is between 660 and 679
+                                       at 7.13% if credit score is between 679 and 699
+                                       at 6.99% if credit score is between 699 and 719
+                                       at 6.87% if credit score is between 719 and 739
+                                   and at 6.75% if credit score is 739 and above.
+        Also, given property tax rate is 8.55% and the home insurance is estimated near the 1.88% of monthly loan payment. 
+
+NOUNS:
+  Credit score, min 660-score, interest rate, home value, downpayment percentage, loan start-year 
+  & month, total down-payment, loan amount, start date (mm, yyyy), payoff date, total cost of loan,
+  monthly principal & interest, monthly property tax, monthly homeowner’s insurance, 10, 15, 20, 25
+  and 30-year terms.
+
+VERBS:
+  Ask, decide, set, output, display, calculate
+
+
+
+
+2. DEFINING DIAGRAM:
+
+INPUTS
+  credit score
+  home value
+  downpayment percentage
+  loan start-year
+  loan start-month
+
+PROCESSING:
+  prompt a user for a credit score
+  output a message for a non-qualified user 
+  assign the right interest rate for the qualified user 
+  prompt a qualified user for more inputs: home value downpayment percentage loan start-year loan start-month
+  convert a month number to a month name
+  output a start-date
+  output a payoff date
+  calculate the cost of a loan
+  calculate the downpayment amount
+  calculate the loan amount
+  calculate the monthly principal & interest
+  calculate the monthly property tax
+  calculate the monthly home insurance
+  calculate the total loan monthly payment
+
+OUTPUTS:
+  message for a not-qualified user
+  credit score
+  home value
+  start date
+  End-date
+  down-payment amount 
+  loan amount
+  cost of a loan
+  Monthly principal & interest
+  Monthly property tax
+  monthly home insurance
+  total monthly loan payment
+
+
+
+
+3. PSEUDOCODE (SOLUTION ALGORITM):
+
+calculateTotalMonthlyLoanPayment
+  prompt a user for a credit score
+    IF credit score is smaller than 660 THEN 
+      Output a message - you're not a qualified for a loan
+    ELSE
+      IF credit score is >= 660 and <= 679 THEN
+        Set interest rate at 7.63%
+      ELSEIF credit score is > 679 and <= 699 THEN
+        Set interest rate at 7.13%
+      ELSEIF credit score is > 699 and <= 719 THEN
+        Set interest rate at 6.99%
+      ELSEIF credit score is > 719 and <= 739 THEN
+        Set interest rate at 6.87% 
+      ENDIF 
+        Set interest rate at 6.75%
+    Prompt a user for the home value
+    Prompt a user for the downpayment percentage
+    Prompt a user for the loan start-year
+    Prompt a user for the loan start-month
+    Convert home value downpayment to numbers
+      SWITCH start-month
+         CASE "1": THEN
+           Assign "Jan"
+         CASE "2": THEN
+           Assign "Feb"
+         CASE "3": THEN
+           Assign "Mar"
+         CASE "4": THEN
+           Assign "Apr"
+         CASE "5": THEN
+           Assign "May"
+         CASE "6": THEN
+           Assign "Jun"
+         CASE "7": THEN
+           Assign "Jul"
+         CASE "8": THEN
+           Assign "Aug"
+         CASE "9": THEN
+           Assign "Sep"
+         CASE "10": THEN
+           Assign "Oct"
+         CASE "11": THEN
+           Assign "Nov"
+         CASE "12": THEN
+           Assign "Dec"
+      ENDCASE
+         Output msg Invalid number
+    Output startdate
+      Calculate the total downpayment
+      Calculate the loan amount
+      Calculate the monthly interest
+      Display home value
+      Display credit score 
+      Display total downpayment
+      Display loan amount
+      Display interest rate
+      Display start-date
+    FOR loop runs for 10, 15, 20, 25 and 30 loan-terms
+      Convert annual loan term to monthly
+      Calculate monthly loan payment
+      Calculate total cost of the loan
+      Calculate monthly property tax
+      Calculate monthly home insurance
+      Calculate the pay off year
+      Output payoff date
+      Display monthly loan payment
+      Display total cost of the loan
+      Display monthly property tax
+      Display monthly home insurance
+      Display the pay off year
+      Display payoff date
+  ENDIF
+END
+
+
+
+4. CHECKING THE SOLUTION ALGORITHM
+
+VARIABLES:
+
+TEST CASE 1:
+  INPUT VALUES:
+    600
+
+  EXPECTED RESULT:
+    Your Credit Score = 600
+    Unfortunately, you're not eligible for a mortgage loan at this time.
+    Please try again once your credit score is 660 or higher! 
+
+
+  ACTUAL RESULT:
+    Your Credit Score = 600
+
+    Unfortunately, you're not eligible for a mortgage loan at this time.
+    Please try again once your credit score is 660 or higher! 
+
+
+TEST CASE 2:
+  INPUT VALUES:
+    660, 100, 10, 2020, 2
+
+  EXPECTED RESULT: (for 25-year Term)
+
+    Home Value = $100
+    Your Credit Score = 660
+    Total Down Payment = $10
+    Loan Amount = $90.00
+    Interest Rate = 7.63%
+    Start Date = Feb 2020
+
+    LOAN PAYMENT BREAKDOWN 
+
+    Total Cost of Loan = $201.82
+    Payoff Date = Feb 2045
+
+    Monthly Principal & Interest = $0.67
+    Monthly Property Tax = $0.06
+    Monthly Homeowner's Insurance = $0.01
+    Total Monthly Payment = $0.74
+
+
+    ACTUAL RESULT:
+    --------------------------------------------------- LOAN INFORMATION
+ 
+    Home Value = $100
+    Your Credit Score = 660
+    Total Down Payment = $10
+    Loan Amount = $90.00
+    Interest Rate (APR) = 7.630000000000001%
+    Start Date = Feb 2020
+    --------------------------------------------------- 25-Year Term
+    LOAN PAYMENT BREAKDOWN
+
+    Total Cost of Loan = $201.82
+    Payoff Date = Feb 2045
+    -----
+
+    Monthly Principal & Interest = $0.67
+    Monthly Property Tax = $0.06
+    Monthly Homeowner's Insurance = $0.01
+    ________________________
+    Total Monthly Payment = $0.74
+
+
+
+  TEST CASE 3:
+  INPUT VALUES:
+    1000, 100.000, 0, 2030, 11
+
+  EXPECTED RESULT: (for 10-year Term)
+    Home Value = $100000
+    Your Credit Score = 1000
+    Total Down Payment = $0
+    Loan Amount = $100000.00
+    Interest Rate (APR) = 6.75%
+    Start Date = Nov 2030
+    LOAN PAYMENT BREAKDOWN
+
+    Total Cost of Loan = $137788.94
+    Payoff Date = Nov 2040
+
+    Monthly Principal & Interest = $1148.24
+    Monthly Property Tax = $98.17
+    Monthly Homeowner's Insurance = $21.59
+    Total Monthly Payment = $1268.00
+
+  ACTUAL RESULT:
+    Home Value = $100000
+    Your Credit Score = 1000
+    Total Down Payment = $0
+    Loan Amount = $100000.00
+    Interest Rate (APR) = 6.75%
+    Start Date = Nov 2030
+   
+    LOAN PAYMENT BREAKDOWN
+
+    Total Cost of Loan = $137788.94
+    Payoff Date = Nov 2040
+    -----
+
+    Monthly Principal & Interest = $1148.24
+    Monthly Property Tax = $98.17
+    Monthly Homeowner's Insurance = $21.59
+    _________________________
+    Total Monthly Payment = $1268.00
+    
+
+  
+TEST CASE 4:
+
+  INPUT VALUES:
+    1234567, 777, 1234567, 1, 12 
+
+  EXPECTED RESULT: (15-year term)
+    Home Value = $1234567
+    Your Credit Score = 777
+    Total Down Payment = $1234567
+    Loan Amount = $0.00
+    Interest Rate (APR) = 6.75%
+    Start Date = Dec 1
+
+    Total Cost of Loan = $0.00
+    Payoff Date = Dec 16 
+    Monthly Principal & Interest = $0.00
+    Monthly Property Tax = $0.00
+    Monthly Homeowner's Insurance = $0.00
+  Total Monthly Payment = $0.00
+ 
+  ACTUAL RESULT:
+    Home Value = $1234567
+    Your Credit Score = 777
+    Total Down Payment = $1234567
+    Loan Amount = $0.00
+    Interest Rate (APR) = 6.75%
+    Start Date = Dec 1 
+
+    LOAN PAYMENT BREAKDOWN
+
+    Total Cost of Loan = $0.00
+    Payoff Date = Dec 16
+    -----
+
+    Monthly Principal & Interest = $0.00
+    Monthly Property Tax = $0.00
+    Monthly Homeowner's Insurance = $0.00
+    _________________________
+    Total Monthly Payment = $0.00
+
